@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "gestion-mdn",
+  "compatibility_date": "2026-07-29",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+  {
+    "binding": "DB",
+    "database_name": "gestion-mdn-db",
+    "database_id": "0e7ad712-9543-45db-8c5f-d01fdae4db28"
+  }
+]
+}
