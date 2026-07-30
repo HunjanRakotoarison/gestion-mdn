@@ -1,0 +1,156 @@
+.benevolat {
+  background: #fafafa;
+  padding: 96px 24px 104px;
+}
+
+:global(.dark) .benevolat {
+  background: #121212;
+}
+
+.inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #3fb6b2;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 18px;
+}
+
+:global(.dark) .title {
+  color: #f2f2f2;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 34px;
+  }
+}
+
+.description {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555555;
+}
+
+:global(.dark) .description {
+  color: #c9c9c9;
+}
+
+/* ===== Compteur de bénévoles ===== */
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4fcac5, #3fb6b2);
+  color: #0a2e2c;
+  margin-bottom: 56px;
+  box-shadow: 0 10px 24px -10px rgba(63, 182, 178, 0.6);
+}
+
+.statNumber {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .stat {
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .statLabel {
+    text-align: center;
+  }
+}
+
+/* ===== Grille des catégories ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #3fb6b2;
+  box-shadow: 0 14px 30px -14px rgba(63, 182, 178, 0.4);
+}
+
+:global(.dark) .card {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+}
+
+.icon {
+  color: #3fb6b2;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+:global(.dark) .cardTitle {
+  color: #f2f2f2;
+}
+
+.cardDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  flex: 1;
+}
+
+:global(.dark) .cardDesc {
+  color: #a8a8a8;
+}
+
+.cardLink {
+  font-size: 13px;
+  font-weight: 700;
+  color: #3fb6b2;
+}

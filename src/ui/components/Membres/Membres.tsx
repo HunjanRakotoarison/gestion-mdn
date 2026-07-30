@@ -12,7 +12,9 @@ const TEAM: Member[] = [
   { name: "Fenitra RAVELOMANANTSOA",
     role: "Fondateur", 
     photo: "/assets/images/team/Fondateur.jpg" },
-  { name: "NORO RANDRIANARISON", role: "Directrice" },
+  { name: "Noro RANDRIANARISON",
+    role: "Directrice",
+    photo: "/assets/images/team/Directrice.jpg"  },
 ];
 
 export default function Membres() {
