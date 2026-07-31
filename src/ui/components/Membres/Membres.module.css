@@ -1,6 +1,6 @@
 .membres {
   background: #fafafa;
-  padding: 80px 24px 96px;
+  padding: 48px 24px 96px; /* au lieu de 80px */
 }
 
 :global(.dark) .membres {
