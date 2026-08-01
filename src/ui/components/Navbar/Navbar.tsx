@@ -85,7 +85,7 @@ export default function Navbar() {
         {/* Logo (le texte est déjà dans l'image) */}
         <Link href="/" className={styles.logoLink}>
           <Image
-            src="/asssets/images/logo.jpg"
+            src="/assets/images/logo.jpg"
             alt="Maison du Numérique"
             width={64}
             height={64}

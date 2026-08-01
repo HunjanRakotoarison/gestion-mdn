@@ -1,0 +1,80 @@
+.mapSection {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 48px 24px;
+  overflow: hidden;
+  background: #fafafa;
+  background-image: none;
+}
+
+.mapSection::before,
+.mapSection::after,
+.mapCard::before,
+.mapCard::after {
+  display: none !important;
+  content: none !important;
+}
+
+.mapCard {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: 42px;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  border-radius: 20px;
+  color: #111111;
+  background: #ffffff;
+  box-shadow: 0 16px 32px -14px rgba(17, 17, 17, .18);
+}
+
+.mapIntro { position: relative; z-index: 1; }
+.eyebrow { color: #72e0d5; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.mapIntro h2 { max-width: 250px; margin: 10px 0 12px; color: #111111; font-size: clamp(24px, 3vw, 34px); letter-spacing: -.04em; line-height: 1.05; }
+.mapIntro p { max-width: 270px; margin: 0 0 22px; color: #555555; font-size: 14px; line-height: 1.7; }
+.directionLink { display: inline-flex; gap: 8px; align-items: center; color: #3fb6b2; font-size: 13px; font-weight: 700; text-decoration: none; }
+.directionLink span { transition: transform .2s ease; }
+.directionLink:hover span { transform: translate(3px, -3px); }
+
+.mapFrame { position: relative; min-height: 258px; overflow: hidden; border: 7px solid rgba(255, 255, 255, .12); border-radius: 18px; background: #adc8c5; box-shadow: 0 15px 35px rgba(0, 0, 0, .2); }
+.mapFrame iframe { display: block; width: 100%; height: 258px; border: 0; filter: saturate(.75) contrast(.92); }
+.mapFrame::after { position: absolute; inset: 0; pointer-events: none; border: 1px solid rgba(255, 255, 255, .3); border-radius: 12px; content: ""; }
+.mapPin { position: absolute; top: 50%; left: 50%; width: 23px; height: 23px; border: 4px solid #fff; border-radius: 50% 50% 50% 0; background: #3fb6b2; box-shadow: 0 4px 12px rgba(0, 0, 0, .32); transform: translate(-50%, -68%) rotate(-45deg); }
+.mapPin span { position: absolute; top: 5px; left: 5px; width: 5px; height: 5px; border-radius: 50%; background: #fff; }
+.mapLabel { position: absolute; right: 13px; bottom: 13px; display: flex; align-items: center; gap: 7px; padding: 8px 11px; border: 1px solid rgba(255, 255, 255, .25); border-radius: 9px; color: #12383a; background: rgba(255, 255, 255, .88); box-shadow: 0 7px 15px rgba(0, 0, 0, .12); font-size: 11px; font-weight: 700; }
+.pinIcon { color: #198d89; font-size: 17px; line-height: 1; }
+
+:global(.dark) .mapSection {
+  background: #121212;
+  background-image: none;
+}
+
+:global(.dark) .mapCard {
+  color: #efffff;
+  border-color: #2a2a2a;
+  background: #161616;
+  box-shadow: 0 16px 32px -14px rgba(0, 0, 0, .6);
+}
+
+:global(.dark) .mapIntro h2 { color: #f2f2f2; }
+:global(.dark) .mapIntro p { color: #c9c9c9; }
+:global(.dark) .directionLink { color: #3fb6b2; }
+
+@media (max-width: 760px) {
+  .mapSection { padding: 40px 20px; }
+  .mapCard { grid-template-columns: 1fr; gap: 22px; padding: 22px; }
+  .mapIntro h2 { max-width: none; }
+  .mapIntro p { max-width: 330px; }
+}
+
+@media (max-width: 440px) {
+  .mapCard { border-radius: 18px; padding: 18px; }
+  .mapFrame, .mapFrame iframe { min-height: 220px; height: 220px; }
+  .mapLabel { right: 8px; bottom: 8px; }
+}

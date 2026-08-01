@@ -1,0 +1,62 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+  color: #111111;
+  background: #fafafa;
+  background-image: none;
+}
+
+.footer::before,
+.footer::after,
+.footer .glow {
+  display: none !important;
+  content: none !important;
+}
+
+.container { position: relative; max-width: 1280px; margin: 0 auto; padding: 56px 24px 22px; }
+.top { display: grid; grid-template-columns: 1.35fr .8fr 1.05fr; gap: 64px; padding-bottom: 48px; }
+.logoLink { display: inline-flex; border-radius: 15px; transition: transform .2s ease, box-shadow .2s ease; }
+.logoLink:hover { transform: translateY(-3px) rotate(-2deg); box-shadow: 0 10px 24px rgba(0,0,0,.2); }
+.logo { border-radius: 15px; object-fit: cover; }
+.brandText, .contactText { max-width: 330px; margin: 18px 0 0; color: #555555; font-size: 14px; line-height: 1.7; }
+.columnTitle { margin: 8px 0 18px; color: #3fb6b2; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.links { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
+.links a, .legalLinks a { color: #555555; font-size: 14px; text-decoration: none; transition: color .18s ease, transform .18s ease; }
+.links a:hover, .legalLinks a:hover { color: #3fb6b2; transform: translateX(3px); }
+.contactText { margin: 0 0 16px; }
+.email { display: inline-flex; gap: 8px; color: #111111; font-size: 14px; font-weight: 600; text-decoration: none; }
+.email span { color: #3fb6b2; transition: transform .18s ease; }
+.email:hover span { transform: translate(2px, -2px); }
+.socials { display: flex; gap: 9px; margin-top: 24px; }
+.socialLink { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #ececec; border-radius: 50%; color: #3fb6b2; font-size: 17px; font-weight: 700; text-decoration: none; transition: background .18s ease, border-color .18s ease, transform .18s ease; }
+.socialLink:hover { border-color: #72e0d5; background: #3fb6b2; transform: translateY(-3px); }
+.socialLink svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.socialLink .iconFill { fill: currentColor; stroke: none; }
+.bottom { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid #ececec; color: #666666; font-size: 12px; }
+.bottom p { margin: 0; }
+.legalLinks { display: flex; gap: 10px; }
+.legalLinks a { color: #666666; font-size: 12px; }
+
+:global(.dark) .footer { color: #f2f2f2; background: #121212; background-image: none; }
+:global(.dark) .brandText, :global(.dark) .contactText { color: #b7d8d8; }
+:global(.dark) .columnTitle { color: #3fb6b2; }
+:global(.dark) .links a, :global(.dark) .legalLinks a { color: #d9eeee; }
+:global(.dark) .links a:hover, :global(.dark) .legalLinks a:hover { color: #72e0d5; }
+:global(.dark) .email { color: #ffffff; }
+:global(.dark) .email span { color: #72e0d5; }
+:global(.dark) .socialLink { border-color: #2a2a2a; color: #3fb6b2; }
+:global(.dark) .bottom { border-top-color: #2a2a2a; color: #a8a8a8; }
+:global(.dark) .legalLinks a { color: #a8a8a8; }
+
+@media (max-width: 760px) {
+  .container { padding: 42px 20px 20px; }
+  .top { grid-template-columns: 1fr 1fr; gap: 36px 24px; padding-bottom: 34px; }
+  .brandColumn { grid-column: 1 / -1; }
+  .bottom { flex-direction: column; gap: 12px; }
+}
+
+@media (max-width: 440px) {
+  .top { grid-template-columns: 1fr; }
+  .contactColumn { margin-top: -8px; }
+}
