@@ -8,9 +8,9 @@ import { useTheme } from "next-themes";
 import styles from "./Navbar.module.css";
 
 const NAV_LINKS = [
-  { label: "Accueil", href: "/" },
-  { label: "À propos", href: "/a-propos" },
-  { label: "Bénévole", href: "/benevole" },
+  { label: "Accueil", href: "/#" },
+  { label: "À propos", href: "/#a-propos" },
+  { label: "Bénévole", href: "/#benevole" },
 ] as const;
 
 const TEMOIGNAGE_OPTIONS = [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/ui/components/Navbar/Navbar";
+import Footer from "@/ui/components/Footer/Footer";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
