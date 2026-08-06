@@ -14,21 +14,21 @@ type Slide = {
 // Remplace ces chemins par tes propres images dans /public/assets/images/slides/
 const SLIDES: Slide[] = [
   {
-    image: "/assets/images/bnv/benevolat.jpg",
+    image: "/assets/images/Slide1.png",
     alt: "Formation informatique pour les jeunes",
     eyebrow: "Notre mission",
     title: "Réduire la fracture numérique",
     subtitle: "à Madagascar, un pas à la fois",
   },
   {
-    image: "/assets/images/bnv/benevolat1.jpg",
+    image: "/assets/images/Slide2.jpg",
     alt: "Salle informatique de la Maison du Numérique",
     eyebrow: "Accessibilité",
     title: "Un accès gratuit aux outils numériques",
     subtitle: "pour les populations défavorisées",
   },
   {
-    image: "/assets/images/bnv/benevolat2.jpg",
+    image: "/assets/images/Slide3.jpg",
     alt: "Étudiants pendant un atelier",
     eyebrow: "Impact",
     title: "Plus de 5000 jeunes formés",
@@ -77,6 +77,7 @@ export default function Slides() {
   return (
     <section
       className="slide-section"
+      id="accueil"
       aria-label="Diaporama"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

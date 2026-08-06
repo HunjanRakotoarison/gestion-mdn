@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,7 +11,7 @@ import styles from "./Navbar.module.css";
 const NAV_LINKS = [
   { label: "Accueil", href: "/#" },
   { label: "À propos", href: "/#a-propos" },
-  { label: "Bénévole", href: "/#benevole" },
+  { label: "Bénévole", href: "/#benevolat" },
 ] as const;
 
 const TEMOIGNAGE_OPTIONS = [
@@ -21,7 +22,7 @@ const TEMOIGNAGE_OPTIONS = [
 
 const TAIL_LINKS = [
   { label: "Activité", href: "/activite" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 const LANGUAGES = [
@@ -48,7 +49,7 @@ export default function Navbar() {
   const currentLang = LANGUAGES.find((l) => l.code === lang) ?? LANGUAGES[0];
 
   // Evite le mismatch d'hydratation avec next-themes
-  useEffect(() => setMounted(true), []);
+  useLayoutEffect(() => setMounted(true), []);
 
   // Ferme les menus si on clique en dehors
   useEffect(() => {
