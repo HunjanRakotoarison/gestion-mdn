@@ -1,6 +1,7 @@
 .hero {
   background: #ffffff;
-  padding: 88px 24px 48px; /* au lieu de 96px */
+  padding: 88px 24px 48px;
+  scroll-margin-top: 90px; /* compense la hauteur de la navbar fixe pour le scroll vers #a-propos */
 }
 
 :global(.dark) .hero {

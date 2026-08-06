@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ActivitePage from "@/ui/components/ActivitePage/ActivitePage";
+import ActivitePage from "@/ui/components/ActivitiesPage/ActivitePage";
 
 export const metadata: Metadata = {
   title: "Utilisateurs | Maison du Numérique",

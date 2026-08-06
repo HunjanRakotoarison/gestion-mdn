@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
-import styles from "./ActivitePage.module.css";
+import styles from "./Activites.module.css";
 
 const display = Space_Grotesk({
   subsets: ["latin"],

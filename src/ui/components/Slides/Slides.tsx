@@ -77,6 +77,7 @@ export default function Slides() {
   return (
     <section
       className="slide-section"
+      id="accueil"
       aria-label="Diaporama"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

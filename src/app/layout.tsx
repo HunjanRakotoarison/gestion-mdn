@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/ui/components/Navbar/Navbar";
 import Footer from "@/ui/components/Footer/Footer";
+
 import Map from "@/ui/components/Footer/Map";
+import ScrollToHash from "@/ui/components/ScrollToHash";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -34,6 +37,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="light">
           <Navbar />
+          <ScrollToHash />
+
           <main className="flex-1">{children}</main>
           <Map />
           <Footer />
