@@ -35,12 +35,32 @@ export default function Benevolat() {
               href={`/benevolat/${cat.slug}`}
               className={styles.card}
             >
-              <span className={styles.icon}>
-                <CategoryIcon slug={cat.slug} />
+              <div className={styles.cardTop}>
+                <span className={styles.iconBadge}>
+                  <CategoryIcon slug={cat.slug} />
+                </span>
+                <span className={styles.countBadge}>
+                  {cat.contributors.length}
+                </span>
+              </div>
+
+              <div className={styles.cardBody}>
+                <p className={styles.cardTitle}>{cat.label}</p>
+                <p className={styles.cardDesc}>{cat.description}</p>
+              </div>
+
+              <span className={styles.cardLink}>
+                Voir plus
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
-              <p className={styles.cardTitle}>{cat.label}</p>
-              <p className={styles.cardDesc}>{cat.description}</p>
-              <span className={styles.cardLink}>Voir plus →</span>
             </Link>
           ))}
         </div>
@@ -53,63 +73,35 @@ function CategoryIcon({ slug }: { slug: BenevolatCategory["slug"] }) {
   switch (slug) {
     case "temoignages":
       return (
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-          <path
-            d="M4 5h16v11H9l-4 4V5z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M8 10h8M8 13h5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+          <path d="M4 5h16v11H9l-4 4V5z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+          <path d="M8 10h8M8 13h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case "en-action":
       return (
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-          <rect
-            x="3"
-            y="6"
-            width="18"
-            height="13"
-            rx="2"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M8 6l1.6-2.5h4.8L16 6"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-          <circle cx="12" cy="12.5" r="3.2" stroke="currentColor" strokeWidth="1.5" />
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+          <rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.6" />
+          <path d="M8 6l1.6-2.5h4.8L16 6" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+          <circle cx="12" cy="12.5" r="3.2" stroke="currentColor" strokeWidth="1.6" />
         </svg>
       );
     case "partage":
       return (
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-          <circle cx="7" cy="12" r="2.6" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="17" cy="6" r="2.6" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="17" cy="18" r="2.6" stroke="currentColor" strokeWidth="1.5" />
-          <path
-            d="M9.3 10.8L14.7 7.4M9.3 13.2l5.4 3.4"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+          <circle cx="7" cy="12" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+          <circle cx="17" cy="6" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+          <circle cx="17" cy="18" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+          <path d="M9.3 10.8L14.7 7.4M9.3 13.2l5.4 3.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
     case "remerciements":
       return (
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
           <path
             d="M12 20s-7-4.4-9-9.2C1.6 6.9 4 4 7.2 4c1.9 0 3.4 1 4.8 2.7C13.4 5 14.9 4 16.8 4 20 4 22.4 6.9 21 10.8 19 15.6 12 20 12 20z"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth="1.6"
             strokeLinejoin="round"
           />
         </svg>
@@ -117,14 +109,9 @@ function CategoryIcon({ slug }: { slug: BenevolatCategory["slug"] }) {
     case "hors-mdn":
     default:
       return (
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-          <path
-            d="M12 21s7-6.1 7-11.5A7 7 0 105 9.5C5 14.9 12 21 12 21z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-          <circle cx="12" cy="9.5" r="2.4" stroke="currentColor" strokeWidth="1.5" />
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+          <path d="M12 21s7-6.1 7-11.5A7 7 0 105 9.5C5 14.9 12 21 12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+          <circle cx="12" cy="9.5" r="2.4" stroke="currentColor" strokeWidth="1.6" />
         </svg>
       );
   }

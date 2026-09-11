@@ -1,144 +1,188 @@
 .section {
-  --act-bg: radial-gradient(circle at 15% 0%, #2DD4C014 0%, transparent 45%),
-             radial-gradient(circle at 85% 100%, #F2A93B14 0%, transparent 45%),
-             #F1F3F2;
-  --dot-color: #12213B1f;
-  --line-color: #12213B33;
-  --card-bg: rgba(18, 33, 59, 0.025);
-  --card-border: rgba(18, 33, 59, 0.1);
-  --text-heading: #12213B;
-  --text-body: rgba(18, 33, 59, 0.68);
-  --text-accent: #1C7C74;
-  --blob-opacity: 0.12;
-
-  position: relative;
-  overflow: hidden;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background: var(--act-bg);
+  background: var(--bg-secondary);
+  padding: var(--section-py) var(--section-px);
   transition: background 0.4s ease;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: var(--section-py-lg) var(--section-px);
   }
 }
 
 :global(.dark) .section {
-  --act-bg: linear-gradient(160deg, #0B1424 0%, #12213B 45%, #16213E 100%);
-  --dot-color: #ffffff22;
-  --line-color: #ffffff26;
-  --card-bg: rgba(255, 255, 255, 0.04);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --text-heading: #ffffff;
-  --text-body: rgba(255, 255, 255, 0.62);
-  --text-accent: #2DD4C0;
-  --blob-opacity: 0.28;
+  background: var(--bg-secondary-dark);
 }
 
 .inner {
-  position: relative;
-  max-width: 72rem;
+  max-width: 68rem;
   margin: 0 auto;
 }
 
-.textHeading { color: var(--text-heading); }
-.textBody { color: var(--text-body); }
-.accentText { color: var(--text-accent); }
-.signalLine { stroke: var(--line-color); }
-
-.dotGrid {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
-  background-size: 22px 22px;
+.header {
+  max-width: 34rem;
+  margin-bottom: 1.25rem;
 }
 
-.blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  opacity: var(--blob-opacity);
-  animation: blobFloat 12s ease-in-out infinite;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+.eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
 }
 
-.activiteBouton {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  backdrop-filter: blur(6px);
-  border-radius: 0.75rem;
-  overflow: hidden;
+:global(.dark) .eyebrow {
+  color: var(--accent-bright);
+}
+
+.titre {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.15;
+  color: var(--text-heading);
+  margin-bottom: 0.35rem;
+}
+
+:global(.dark) .titre {
+  color: var(--text-heading-dark);
+}
+
+@media (min-width: 768px) {
+  .titre {
+    font-size: 1.8rem;
+  }
+}
+
+.sousTitre {
+  font-size: 0.82rem;
+  color: var(--text-body);
+}
+
+:global(.dark) .sousTitre {
+  color: var(--text-body-dark);
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Chaque tuile garde sa couleur de catégorie (--c1 / --c2, définies en inline
+   depuis ActivitePage.tsx) : c'est un choix éditorial voulu pour distinguer
+   les activités entre elles, pas une incohérence de palette globale. */
+.tuile {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease,
-    box-shadow 0.3s ease, background 0.4s ease;
-  --glow: var(--c-light);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%);
+  box-shadow: 0 8px 22px -14px var(--c2);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
 }
 
-:global(.dark) .activiteBouton {
-  --glow: var(--c-dark);
+@media (min-width: 640px) {
+  .tuile {
+    min-height: 140px;
+    padding: 1.15rem;
+  }
 }
 
-.activiteBouton:hover {
-  transform: translateY(-4px);
-  border-color: var(--glow);
-  box-shadow: 0 8px 24px -8px var(--glow);
+.tuile:hover {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: 0 14px 30px -14px var(--c2);
 }
 
-.activiteBouton:hover .arrow {
-  transform: translateX(3px);
+.motif {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.arrow {
-  transition: transform 0.25s ease;
+.icone {
+  position: relative;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
 }
 
-.accentBar {
-  height: 0.25rem;
-  background: var(--c-light);
+.icone svg {
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
-:global(.dark) .accentBar {
-  background: var(--c-dark);
+.contenu {
+  position: relative;
+  margin-top: 0.65rem;
 }
 
-.accentTag {
-  color: var(--c-light);
+.tuileTitre {
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
 }
 
-:global(.dark) .accentTag {
-  color: var(--c-dark);
+@media (min-width: 640px) {
+  .tuileTitre {
+    font-size: 1.05rem;
+  }
 }
 
-.fadeUp {
-  opacity: 0;
-  animation: fadeInUp 0.7s ease forwards;
+.tuileResume {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.35;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+.fleche {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-@keyframes blobFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(24px, -18px) scale(1.08); }
-  66% { transform: translate(-18px, 14px) scale(0.95); }
+.fleche svg {
+  width: 14px;
+  height: 14px;
+}
+
+.tuile:hover .fleche {
+  transform: translate(2px, -2px);
+  background: rgba(255, 255, 255, 0.32);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fadeUp, .blob, .activiteBouton {
-    animation: none !important;
-    opacity: 1 !important;
+  .tuile,
+  .fleche {
     transition: none !important;
   }
 }

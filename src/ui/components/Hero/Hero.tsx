@@ -37,7 +37,7 @@ export default function Hero() {
   const active = TABS.find((t) => t.key === activeTab);
 
   return (
-    <section className={styles.hero} id="accueil">
+    <section className={styles.hero} id="a-propos">
       <div className={styles.inner}>
         <span className={styles.eyebrow}>Qui sommes-nous ?</span>
 

@@ -1,0 +1,62 @@
+/* =========================================================================
+   TOKENS — palette et valeurs partagées par toutes les sections du site.
+   À importer UNE FOIS dans ton fichier global (ex: app/globals.css) :
+
+     @import "./tokens.css";
+
+   Toutes les autres feuilles (.module.css) utilisent ces variables via
+   var(--nom-token). Elles restent valables même dans des CSS Modules,
+   car :root n'est pas "scopé"/renommé par le compilateur CSS Modules.
+   ========================================================================= */
+
+:root {
+  /* ---------- Fonds ---------- */
+  --bg-primary: #ffffff;      /* sections "blanches" : Hero, Navbar, Partenariats */
+  --bg-secondary: #fafafa;    /* sections "grises claires" : Membres, Map, Footer, Bénévolat, Activités */
+
+  --bg-primary-dark: #0b1424;   /* bleu nuit — équivalent sombre de --bg-primary */
+  --bg-secondary-dark: #0f1c30; /* bleu nuit légèrement plus clair — équivalent sombre de --bg-secondary */
+
+  /* ---------- Textes ---------- */
+  --text-heading: #111111;
+  --text-heading-dark: #f2f2f2;
+
+  --text-body: #555555;
+  --text-body-dark: #c9c9c9;
+
+  --text-muted: #666666;
+  --text-muted-dark: #a8a8a8;
+
+  /* ---------- Bordures ---------- */
+  --border: #ececec;
+  --border-dark: rgba(255, 255, 255, 0.1);
+
+  /* ---------- Accent turquoise (identique partout) ---------- */
+  --accent: #3fb6b2;          /* accent standard, utilisé sur fond clair */
+  --accent-strong: #4fcac5;   /* accent plus lumineux — hover, gradients, dark mode */
+  --accent-bright: #6fd4cf;   /* accent le plus lumineux — eyebrows/texte sur fond très sombre */
+  --accent-on: #0a2e2c;       /* texte à utiliser SUR un fond accent (boutons, badges pleins) */
+
+  --accent-soft: rgba(63, 182, 178, 0.12);       /* fond translucide léger, mode clair */
+  --accent-soft-dark: rgba(79, 202, 197, 0.16);  /* fond translucide léger, mode sombre */
+
+  --accent-gradient: linear-gradient(135deg, var(--accent-strong), var(--accent));
+
+  /* ---------- Espacement des sections (même rythme partout) ---------- */
+  --section-py: 64px;      /* padding vertical mobile, pour toutes les sections de contenu */
+  --section-py-lg: 88px;   /* padding vertical desktop (min-width: 768px) */
+  --section-px: 24px;      /* padding horizontal, mobile et desktop */
+
+  /* ---------- Rayons ---------- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ---------- Ombres ---------- */
+  --shadow-card: 0 16px 32px -14px rgba(17, 17, 17, 0.18);
+  --shadow-card-dark: 0 16px 32px -14px rgba(0, 0, 0, 0.55);
+
+  --shadow-accent: 0 10px 24px -10px rgba(63, 182, 178, 0.6);
+  --shadow-accent-hover: 0 14px 30px -10px rgba(63, 182, 178, 0.78);
+}

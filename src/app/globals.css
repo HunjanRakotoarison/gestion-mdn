@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "./tokens.css";
+
+/* le reste de ton CSS global existant */
 
 :root {
   --background: #ffffff;
@@ -18,9 +21,49 @@
     --foreground: #ededed;
   }
 }
+body > [id^=":"],
+body > div[style*="position: absolute"][style*="top: 0"] {
+  display: none !important;
+}
+
+html body .goog-te-banner-frame,
+html body .skiptranslate {
+  display: none !important;
+  position: fixed !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+
+/* Cache TOUT ce que Google Translate injecte, peu importe où dans le DOM */
+.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-gadget-icon,
+.goog-te-gadget-simple,
+.goog-te-gadget span,
+.goog-logo-link,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+#goog-gt-tt,
+#goog-gt-,
+iframe.goog-te-banner-frame,
+iframe[src*="translate.google"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+}
 
 body {
-  background: var(--background);
+  top: 0 !important;
+  position: static !important;
+   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
 }

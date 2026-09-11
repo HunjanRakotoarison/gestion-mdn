@@ -1,0 +1,103 @@
+.card {
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px -12px rgba(63, 182, 178, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(63, 182, 178, 0.3);
+}
+
+:global(.dark) .card {
+  background: #161616;
+  border-color: #2a2a2a;
+}
+
+:global(.dark) .card:hover {
+  box-shadow: 0 12px 40px -12px rgba(63, 182, 178, 0.15);
+  border-color: rgba(63, 182, 178, 0.4);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 20px;
+}
+
+:global(.dark) .title {
+  color: #f2f2f2;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(63, 182, 178, 0.1);
+  color: #3fb6b2;
+  flex-shrink: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+:global(.dark) .label {
+  color: #888888;
+}
+
+.value {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+:global(.dark) .value {
+  color: #c9c9c9;
+}
+
+.link {
+  font-size: 14px;
+  color: #3fb6b2;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: #2fd6c9;
+  text-decoration: underline;
+}

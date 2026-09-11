@@ -1,18 +1,18 @@
 .slide-section {
   width: 100%;
-  background: #060606;
+  background: var(--bg-primary-dark);
 }
 
 .slide-viewport {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 380px;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .slide-viewport {
-    height: 420px;
+    height: 520px;
   }
 }
 
@@ -66,10 +66,10 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.72) 0%,
-    rgba(0, 0, 0, 0.1) 42%,
-    rgba(0, 0, 0, 0.05) 65%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(11, 20, 36, 0.78) 0%,
+    rgba(11, 20, 36, 0.12) 42%,
+    rgba(11, 20, 36, 0.06) 65%,
+    rgba(11, 20, 36, 0.22) 100%
   );
 }
 
@@ -85,8 +85,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 54px;
-  padding: 0 20px;
+  bottom: 68px;
+  padding: 0 26px;
   text-align: center;
   color: #ffffff;
 }
@@ -95,12 +95,12 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 10px;
+  font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #6fd4cf;
-  margin-bottom: 8px;
+  color: var(--accent-bright);
+  margin-bottom: 9px;
   opacity: 0;
   transform: translateY(8px);
 }
@@ -110,18 +110,18 @@
 }
 
 .slide-eyebrow-dash {
-  width: 18px;
-  height: 1.5px;
-  background: #3fb6b2;
+  width: 19px;
+  height: 2px;
+  background: var(--accent);
   display: inline-block;
 }
 
 .slide-caption-title {
-  font-size: 19px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.2;
-  margin: 0 0 8px;
+  margin: 0 0 9px;
   opacity: 0;
   transform: translateY(12px);
   filter: blur(3px);
@@ -133,7 +133,7 @@
 }
 
 .slide-caption-subtitle {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.75);
@@ -157,10 +157,10 @@
 
 @media (min-width: 768px) {
   .slide-caption-title {
-    font-size: 28px;
+    font-size: 35px;
   }
   .slide-caption-subtitle {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 
@@ -169,8 +169,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 34px;
-  height: 34px;
+  width: 41px;
+  height: 41px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.06);
@@ -197,30 +197,30 @@
 }
 
 .slide-arrow-left {
-  left: 14px;
+  left: 17px;
 }
 
 .slide-arrow-right {
-  right: 14px;
+  right: 17px;
 }
 
 @media (min-width: 768px) {
   .slide-arrow {
-    width: 38px;
-    height: 38px;
+    width: 48px;
+    height: 48px;
   }
 }
 
 /* ===== Footer : compteur + dots ===== */
 .slide-footer {
   position: absolute;
-  bottom: 16px;
+  bottom: 20px;
   left: 0;
   right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 15px;
   z-index: 3;
 }
 
@@ -228,7 +228,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 500;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.85);
@@ -236,12 +236,12 @@
 }
 
 .slide-counter-current {
-  color: #6fd4cf;
+  color: var(--accent-bright);
   font-weight: 700;
 }
 
 .slide-counter-sep {
-  width: 10px;
+  width: 11px;
   height: 1px;
   background: rgba(255, 255, 255, 0.3);
 }
@@ -253,14 +253,14 @@
 .slide-dots {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .slide-dot {
   position: relative;
-  width: 18px;
-  height: 3px;
-  border-radius: 3px;
+  width: 21px;
+  height: 3.5px;
+  border-radius: 4px;
   border: none;
   background: rgba(255, 255, 255, 0.25);
   cursor: pointer;
@@ -274,14 +274,14 @@
 }
 
 .slide-dot-active {
-  width: 26px;
+  width: 32px;
   background: rgba(255, 255, 255, 0.25);
 }
 
 .slide-dot-progress {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #3fb6b2, #6fd4cf);
+  background: var(--accent-gradient);
   transform-origin: left center;
   transform: scaleX(0);
   animation-name: slide-progress;

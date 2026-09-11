@@ -1,6 +1,7 @@
 "use client";
-
+import { changeLanguage } from "@/lib/translate";
 import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,9 +9,9 @@ import { useTheme } from "next-themes";
 import styles from "./Navbar.module.css";
 
 const NAV_LINKS = [
-  { label: "Accueil", href: "/" },
-  { label: "À propos", href: "/a-propos" },
-  { label: "Bénévole", href: "/benevole" },
+  { label: "Accueil", href: "/#" },
+  { label: "À propos", href: "/#a-propos" },
+  { label: "Bénévole", href: "/#benevolat" },
 ] as const;
 
 const TEMOIGNAGE_OPTIONS = [
@@ -21,7 +22,7 @@ const TEMOIGNAGE_OPTIONS = [
 
 const TAIL_LINKS = [
   { label: "Activité", href: "/activite" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 const LANGUAGES = [
@@ -34,7 +35,6 @@ export default function Navbar() {
   const [temoignageOpen, setTemoignageOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [memberMsgOpen, setMemberMsgOpen] = useState(false);
   const [lang, setLang] = useState<(typeof LANGUAGES)[number]["code"]>("FR");
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +48,7 @@ export default function Navbar() {
   const currentLang = LANGUAGES.find((l) => l.code === lang) ?? LANGUAGES[0];
 
   // Evite le mismatch d'hydratation avec next-themes
-  useEffect(() => setMounted(true), []);
+  useLayoutEffect(() => setMounted(true), []);
 
   // Ferme les menus si on clique en dehors
   useEffect(() => {
@@ -171,6 +171,7 @@ export default function Navbar() {
                     onClick={() => {
                       setLang(l.code);
                       setLangOpen(false);
+                      changeLanguage(l.code.toLowerCase() as "fr" | "mg" | "en");
                     }}
                     className={`${styles.dropdownItem} ${styles.langItem} ${
                       lang === l.code ? styles.langItemActive : ""
@@ -201,7 +202,9 @@ export default function Navbar() {
 
           {/* Connexion : le message membre apparaît juste au survol */}
           <div className={`${styles.dropdownWrap} ${styles.connexionWrap}`}>
-            <button className={styles.connexionButton}>Connexion</button>
+            <Link href="/admin/login" className={styles.connexionButton}>
+              Connexion
+            </Link>
             <div className={`${styles.memberMsg} ${styles.dropdownRight}`}>
               Espace réservé aux membres de la Maison du Numérique.
             </div>
@@ -279,17 +282,13 @@ export default function Navbar() {
             {mounted && resolvedTheme === "dark" ? "Mode clair" : "Mode sombre"}
           </button>
 
-          <button
-            onClick={() => setMemberMsgOpen((v) => !v)}
+          <Link
+            href="/admin/login"
+            onClick={() => setMobileOpen(false)}
             className={styles.connexionButtonMobile}
           >
             Connexion
-          </button>
-          {memberMsgOpen && (
-            <p className={styles.memberMsgMobile}>
-              Espace réservé aux membres de la Maison du Numérique.
-            </p>
-          )}
+          </Link>
         </div>
       )}
     </nav>

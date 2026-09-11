@@ -9,10 +9,16 @@
     "binding": "ASSETS"
   },
   "d1_databases": [
-  {
-    "binding": "DB",
-    "database_name": "gestion-mdn-db",
-    "database_id": "0e7ad712-9543-45db-8c5f-d01fdae4db28"
-  }
-]
+    {
+      "binding": "DB",
+      "database_name": "gestion-mdn-db",
+      "database_id": "0e7ad712-9543-45db-8c5f-d01fdae4db28"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "PHOTOS",
+      "bucket_name": "gestion-mdn-photos"
+    }
+  ]
 }
