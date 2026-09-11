@@ -1,10 +1,16 @@
 .membres {
-  background: #fafafa;
-  padding: 48px 24px 96px; /* au lieu de 80px */
+  background: var(--bg-secondary);
+  padding: var(--section-py) var(--section-px);
+}
+
+@media (min-width: 768px) {
+  .membres {
+    padding: var(--section-py-lg) var(--section-px);
+  }
 }
 
 :global(.dark) .membres {
-  background: #131313;
+  background: var(--bg-secondary-dark);
 }
 
 .inner {
@@ -19,19 +25,23 @@
   font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: #3fb6b2;
+  color: var(--accent);
   margin-bottom: 12px;
+}
+
+:global(.dark) .eyebrow {
+  color: var(--accent-bright);
 }
 
 .title {
   font-size: 26px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text-heading);
   margin: 0 0 44px;
 }
 
 :global(.dark) .title {
-  color: #f2f2f2;
+  color: var(--text-heading-dark);
 }
 
 .grid {
@@ -49,25 +59,25 @@
 }
 
 .card {
-  background: #ffffff;
-  border: 1px solid #ececec;
-  border-radius: 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 32px 24px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px -14px rgba(17, 17, 17, 0.18);
+  box-shadow: var(--shadow-card);
 }
 
 :global(.dark) .card {
-  background: #161616;
-  border: 1px solid #2a2a2a;
+  background: var(--bg-primary-dark);
+  border: 1px solid var(--border-dark);
 }
 
 :global(.dark) .card:hover {
-  box-shadow: 0 16px 32px -14px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-card-dark);
 }
 
 .photoWrap {
@@ -79,15 +89,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f4f4f4;
+  background: var(--bg-secondary);
   color: #9a9a9a;
   box-shadow: 0 0 0 4px rgba(63, 182, 178, 0.16);
 }
 
 :global(.dark) .photoWrap {
-  background: #202020;
+  background: var(--bg-secondary-dark);
   color: #6f6f6f;
-  box-shadow: 0 0 0 4px rgba(63, 182, 178, 0.22);
+  box-shadow: 0 0 0 4px rgba(79, 202, 197, 0.22);
 }
 
 .photo {
@@ -99,18 +109,22 @@
 .name {
   font-size: 16px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text-heading);
   margin: 0 0 4px;
 }
 
 :global(.dark) .name {
-  color: #f2f2f2;
+  color: var(--text-heading-dark);
 }
 
 .role {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  color: #3fb6b2;
+  color: var(--accent);
   margin: 0;
+}
+
+:global(.dark) .role {
+  color: var(--accent-strong);
 }
