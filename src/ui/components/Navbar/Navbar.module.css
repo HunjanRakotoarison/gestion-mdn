@@ -6,7 +6,10 @@
   background: #ffffff;
   border-bottom: 1px solid #ececec;
   backdrop-filter: blur(6px);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 :global(.dark) .nav {
@@ -41,21 +44,9 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 10px;
-  transition: transform 0.18s ease, filter 0.18s ease;
-}
-
-.logoLink:hover {
-  transform: scale(1.05) rotate(-1deg);
-  filter: drop-shadow(0 6px 14px rgba(63, 182, 178, 0.35));
-}
-
-.logoLink:active {
-  transform: scale(0.96);
-}
-
-.logo {
-  border-radius: 10px;
-  object-fit: contain;
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
 }
 
 /* ===== Liens desktop ===== */
@@ -80,11 +71,14 @@
   font-weight: 500;
   color: #111111;
   text-decoration: none;
-  transition: background-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.12s ease;
 }
 
 .navLink:hover {
-  background: #f4f4f4;
+  /* background: #f4f4f4; */
   transform: translateY(-1px);
 }
 
@@ -94,10 +88,6 @@
 
 :global(.dark) .navLink {
   color: #f2f2f2;
-}
-
-:global(.dark) .navLink:hover {
-  background: #1d1d1d;
 }
 
 .underline {
@@ -120,7 +110,6 @@
 /* Lien actif = page courante */
 .navLinkActive {
   color: #0a2e2c;
-  background: rgba(63, 182, 178, 0.16);
   font-weight: 600;
 }
 
@@ -128,17 +117,9 @@
   transform: scaleX(1);
 }
 
-.navLinkActive:hover {
-  background: rgba(63, 182, 178, 0.22);
-}
 
 :global(.dark) .navLinkActive {
   color: #ffffff;
-  background: rgba(63, 182, 178, 0.25);
-}
-
-:global(.dark) .navLinkActive:hover {
-  background: rgba(63, 182, 178, 0.32);
 }
 
 .navButton {
@@ -153,11 +134,13 @@
   background: none;
   border: none;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.12s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.12s ease;
 }
 
 .navButton:hover {
-  background: #f4f4f4;
+  /* background: #f4f4f4; */
   transform: translateY(-1px);
 }
 
@@ -167,10 +150,6 @@
 
 :global(.dark) .navButton {
   color: #f2f2f2;
-}
-
-:global(.dark) .navButton:hover {
-  background: #1d1d1d;
 }
 
 /* ===== Dropdowns (Témoignage / Langue) ===== */
@@ -233,7 +212,9 @@
   border: none;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 
 .dropdownItem:hover {
@@ -304,7 +285,10 @@
   background: #fafafa;
   border: 1px solid #ececec;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.12s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.12s ease,
+    border-color 0.15s ease;
 }
 
 .langButton:hover {
@@ -332,7 +316,10 @@
   background: #fafafa;
   border: 1px solid #ececec;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.3s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.3s ease,
+    border-color 0.15s ease;
 }
 
 .iconButton:hover {
@@ -377,7 +364,10 @@
   border: none;
   cursor: pointer;
   box-shadow: 0 8px 20px -8px rgba(63, 182, 178, 0.6);
-  transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    filter 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .connexionButton:hover {
@@ -405,7 +395,10 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s;
   pointer-events: none;
 }
 
@@ -449,7 +442,9 @@
   width: 20px;
   height: 2px;
   background: #111111;
-  transition: transform 0.2s, opacity 0.2s;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
 }
 
 :global(.dark) .burgerLine,
@@ -502,7 +497,9 @@
   border: none;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 
 .mobileLink:hover {

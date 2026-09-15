@@ -32,6 +32,8 @@ const LANGUAGES = [
 
 export default function Navbar() {
   const [temoignageOpen, setTemoignageOpen] = useState(false);
+  const [mobileTemoignageOpen, setMobileTemoignageOpen] = useState(false);
+  const temoignageCloseTimer = useRef<NodeJS.Timeout | null>(null);
   const [langOpen, setLangOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [memberMsgOpen, setMemberMsgOpen] = useState(false);
@@ -46,6 +48,12 @@ export default function Navbar() {
   const langRef = useRef<HTMLDivElement>(null);
 
   const currentLang = LANGUAGES.find((l) => l.code === lang) ?? LANGUAGES[0];
+
+  const isTemoignageActive = TEMOIGNAGE_OPTIONS.some(
+    (opt) =>
+      pathname === opt.href ||
+      pathname.startsWith(`${opt.href}/`)
+  );
 
   // Evite le mismatch d'hydratation avec next-themes
   useEffect(() => setMounted(true), []);
@@ -75,6 +83,20 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const openTemoignage = () => {
+    if (temoignageCloseTimer.current) {
+      clearTimeout(temoignageCloseTimer.current);
+    }
+
+    setTemoignageOpen(true);
+  };
+
+  const closeTemoignage = () => {
+    temoignageCloseTimer.current = setTimeout(() => {
+      setTemoignageOpen(false);
+    }, 150);
+  };
+
   function toggleTheme() {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   }
@@ -82,15 +104,20 @@ export default function Navbar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
       <div className={styles.inner}>
-        {/* Logo (le texte est déjà dans l'image) */}
         <Link href="/" className={styles.logoLink}>
           <Image
-            src="/assets/images/logo.jpg"
+            src="/assets/images/logo-light.png"
             alt="Maison du Numérique"
-            width={64}
+            width={80}
             height={64}
-            className={styles.logo}
-            priority
+            className={`block dark:hidden`}
+          />
+          <Image
+            src="/assets/images/logo-dark.png"
+            alt="Maison du Numérique"
+            width={80}
+            height={64}
+            className={`${styles.logo} hidden dark:block`}
           />
         </Link>
 
@@ -106,14 +133,20 @@ export default function Navbar() {
           ))}
 
           {/* Dropdown Témoignage */}
-          <div className={styles.dropdownWrap} ref={temoignageRef}>
+          <div className={styles.dropdownWrap} ref={temoignageRef} 
+            onMouseEnter={() => openTemoignage()}
+            onMouseLeave={() => closeTemoignage()}
+          >
             <button
               onClick={() => setTemoignageOpen((v) => !v)}
-              className={styles.navButton}
+              className={`${styles.navButton} ${styles.navLink} ${
+                isTemoignageActive ? styles.navLinkActive : ""
+              }`}
               aria-expanded={temoignageOpen}
             >
               Témoignage
               <ChevronIcon open={temoignageOpen} />
+              <span className={styles.underline} />
             </button>
 
             {temoignageOpen && (
@@ -125,7 +158,6 @@ export default function Navbar() {
                     onClick={() => setTemoignageOpen(false)}
                     className={styles.dropdownItem}
                   >
-                    <span className={styles.dot} />
                     {opt.label}
                   </Link>
                 ))}
@@ -238,13 +270,14 @@ export default function Navbar() {
           ))}
 
           <button
-            onClick={() => setTemoignageOpen((v) => !v)}
+            onClick={() => setMobileTemoignageOpen((v) => !v)}
             className={styles.mobileLink}
+            aria-expanded={mobileTemoignageOpen}
           >
             Témoignage
-            <ChevronIcon open={temoignageOpen} />
+            <ChevronIcon open={mobileTemoignageOpen} />
           </button>
-          {temoignageOpen && (
+          {mobileTemoignageOpen && (
             <div className={styles.mobileSubmenu}>
               {TEMOIGNAGE_OPTIONS.map((opt) => (
                 <Link
@@ -252,7 +285,7 @@ export default function Navbar() {
                   href={opt.href}
                   onClick={() => {
                     setMobileOpen(false);
-                    setTemoignageOpen(false);
+                    setMobileTemoignageOpen(false);
                   }}
                   className={styles.mobileSubItem}
                 >
