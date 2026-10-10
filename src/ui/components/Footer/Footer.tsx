@@ -18,11 +18,18 @@ export default function Footer() {
           <div className={styles.brandColumn}>
             <Link href="/" className={styles.logoLink} aria-label="Maison du Numérique, accueil">
               <Image
-                src="/assets/images/logo.jpg"
+                src="/assets/images/logo-light.png"
                 alt="Maison du Numérique"
-                width={66}
-                height={66}
-                className={styles.logo}
+                width={100}
+                height={100}
+                className={`${styles.logo} block dark:hidden`}
+              />
+              <Image
+                src="/assets/images/logo-dark.png"
+                alt="Maison du Numérique"
+                width={100}
+                height={100}
+                className={`${styles.logo} hidden dark:block`}
               />
             </Link>
             <p className={styles.brandText}>

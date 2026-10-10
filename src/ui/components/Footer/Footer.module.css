@@ -17,7 +17,7 @@
 .container { position: relative; max-width: 1280px; margin: 0 auto; padding: 56px 24px 22px; }
 .top { display: grid; grid-template-columns: 1.35fr .8fr 1.05fr; gap: 64px; padding-bottom: 48px; }
 .logoLink { display: inline-flex; border-radius: 15px; transition: transform .2s ease, box-shadow .2s ease; }
-.logoLink:hover { transform: translateY(-3px) rotate(-2deg); box-shadow: 0 10px 24px rgba(0,0,0,.2); }
+/* .logoLink:hover { transform: translateY(-3px) rotate(-2deg); box-shadow: 0 10px 24px rgba(0,0,0,.2); } */
 .logo { border-radius: 15px; object-fit: cover; }
 .brandText, .contactText { max-width: 330px; margin: 18px 0 0; color: #555555; font-size: 14px; line-height: 1.7; }
 .columnTitle { margin: 8px 0 18px; color: #3fb6b2; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }

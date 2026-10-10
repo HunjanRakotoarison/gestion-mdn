@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/ui/components/Providers/ThemeProvider";
 import Navbar from "@/ui/components/Navbar/Navbar";
 import Footer from "@/ui/components/Footer/Footer";
 import Map from "@/ui/components/Footer/Map";
@@ -32,7 +32,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Map />

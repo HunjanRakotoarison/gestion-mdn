@@ -3,9 +3,13 @@
   --text-heading: #12213B;
   --text-body: rgba(18, 33, 59, 0.65);
   --text-eyebrow: #0D9488;
+  --arrow-color: #12213B;
+  --bgdecor-color: rgba(18, 61, 140, 0.14);
 
+  position: relative;
   background: var(--bg);
   padding: 2rem 1rem;
+  overflow: hidden;
   transition: background 0.4s ease;
 }
 
@@ -20,9 +24,33 @@
   --text-heading: #ffffff;
   --text-body: rgba(255, 255, 255, 0.62);
   --text-eyebrow: #2DD4C0;
+  --bgdecor-color: rgba(80, 150, 255, 0.16);
+}
+
+.bgDecor {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 220px;
+  height: 190px;
+  color: var(--bgdecor-color);
+  pointer-events: none;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .bgDecor {
+    display: block;
+  }
+}
+
+.bgDecor svg {
+  width: 100%;
+  height: 100%;
 }
 
 .inner {
+  position: relative;
   max-width: 68rem;
   margin: 0 auto;
 }
@@ -65,12 +93,13 @@
 .grille {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 0.9rem;
 }
 
 @media (min-width: 640px) {
   .grille {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
@@ -79,100 +108,105 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 120px;
-  padding: 1rem;
-  border-radius: 1.1rem;
+  min-height: 140px;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
   overflow: hidden;
   text-decoration: none;
   color: #ffffff;
   background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%);
-  box-shadow: 0 8px 22px -14px var(--c2);
+  box-shadow: 0 10px 24px -14px var(--c2);
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
 }
 
 @media (min-width: 640px) {
   .tuile {
-    min-height: 140px;
-    padding: 1.15rem;
+    min-height: 170px;
+    padding: 1.5rem;
   }
 }
 
 .tuile:hover {
   transform: translateY(-4px) scale(1.012);
-  box-shadow: 0 14px 30px -14px var(--c2);
+  box-shadow: 0 16px 32px -14px var(--c2);
 }
 
 .motif {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
-    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
   pointer-events: none;
+  color: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+}
+
+.motifSvg {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 170px;
+  height: 140px;
 }
 
 .icone {
   position: relative;
-  width: 2.3rem;
-  height: 2.3rem;
+  width: 3.1rem;
+  height: 3.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.7rem;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(4px);
+  border-radius: 0.95rem;
+  background: linear-gradient(135deg, var(--ci1) 0%, var(--ci2) 100%);
+  box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.35);
 }
 
 .icone svg {
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .contenu {
   position: relative;
-  margin-top: 0.65rem;
+  margin-top: 0.85rem;
 }
 
 .tuileTitre {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   margin-bottom: 0.2rem;
 }
 
 @media (min-width: 640px) {
   .tuileTitre {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
 }
 
 .tuileResume {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.35;
 }
 
 .fleche {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 1.6rem;
-  height: 1.6rem;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 2.2rem;
+  height: 2.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.18);
+  background: #ffffff;
+  color: var(--arrow-color);
+  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.fleche svg {
-  width: 14px;
-  height: 14px;
 }
 
 .tuile:hover .fleche {
   transform: translate(2px, -2px);
-  background: rgba(255, 255, 255, 0.32);
+  background: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {
